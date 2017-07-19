@@ -1,11 +1,13 @@
 package com.slin.app.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.slin.app.data.Person;
@@ -20,8 +22,8 @@ public class PersonController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	@ResponseBody
-	public String addPerson () {
-		final Person ma = new Person("Ma", "Jo", LocalDateTime.now(), "Winner", 100);		
+	public String addPerson (@RequestParam("firstName")String firstName) {
+		final Person ma = new Person(firstName, "Jo", LocalDateTime.now(), "Winner", 100);		
 		try {
 			personRepository.save(ma);
 		} catch (Exception e) {
@@ -31,9 +33,9 @@ public class PersonController {
 	}
 	
 	
-	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	@RequestMapping(value="/list", method=RequestMethod.GET)
 	@ResponseBody
-	public String delete () {
-		return "person added";
+	public List<Person> delete () {
+		return personRepository.findAll();
 	}
 }
