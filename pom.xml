@@ -4,17 +4,28 @@
 	<groupId>com.slin.app</groupId>
 	<artifactId>mongo-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.4.RELEASE</version>
 	</parent>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok-maven-plugin</artifactId>
+			<version>1.16.18.0</version>
 		</dependency>
 	</dependencies>
 </project>
